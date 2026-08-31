@@ -110,7 +110,6 @@ export default function Navbar({ onMenuClick, searchOpen, setSearchOpen, theme, 
         <button 
           aria-label="Account"
           className="ml-1 flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-purple-500 to-pink-500 text-sm font-semibold text-white"
-          // onClick={() => navigate("/")}
         >
           F
         </button>
