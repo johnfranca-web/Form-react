@@ -15,7 +15,7 @@ const Counter = () => {
     setLoading(true);
     setTimeout(() => {
       navigate("/youtube-dashboard");
-    }, 5000
+    }, 3000
   )
   };
 

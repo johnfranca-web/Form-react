@@ -1,6 +1,9 @@
 import { Menu, Search, Mic, Video, Bell, X, Sun, Moon } from "lucide-react";
+import {useNavigate} from "react-router-dom";
 
 export default function Navbar({ onMenuClick, searchOpen, setSearchOpen, theme, toggleTheme }) {
+  const navigate = useNavigate();
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex h-14 items-center justify-between gap-4 bg-white px-2 transition-colors duration-200 sm:px-4 dark:bg-[#0f0f0f]">
       {/* Left: menu + logo */}
@@ -98,8 +101,16 @@ export default function Navbar({ onMenuClick, searchOpen, setSearchOpen, theme, 
           <Bell size={22} className="text-gray-900 dark:text-white" />
         </button>
         <button
+          type="button"
+          className="hidden items-center rounded-full border border-blue-500 bg-blue-50 px-4 py-2 text-sm font-medium text-blue-600 transition hover:bg-blue-100 sm:inline-flex dark:border-blue-400 dark:bg-blue-500/10 dark:text-blue-300 dark:hover:bg-blue-500/20"
+          onClick={() => navigate("/")}
+        >
+          Log in
+        </button>
+        <button 
           aria-label="Account"
           className="ml-1 flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-purple-500 to-pink-500 text-sm font-semibold text-white"
+          // onClick={() => navigate("/")}
         >
           F
         </button>
