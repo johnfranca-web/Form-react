@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* class-based dark mode: toggling .dark on <html> flips every dark: utility */
+@custom-variant dark (&:where(.dark, .dark *));
+
 html, body, #root {
   height: 100%;
 }
@@ -18,6 +21,9 @@ body {
 ::-webkit-scrollbar-thumb {
   background: #d1d5db;
   border-radius: 9999px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #4d4d4d;
 }
 ::-webkit-scrollbar-track {
   background: transparent;

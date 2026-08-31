@@ -1,75 +1,22 @@
-// import { useState } from "react";
-// import { React } from "react";
-
-// const Counter = () => {
-//   const [count, setCount] = useState(0);
-//   const [name, setName] = useState("");
-//   const [displayedName, setDisplayedName] = useState("");
-
-//   const handleLogin = () => {
-//     setDisplayedName(name);
-//   };
-
-//   return (
-//     < div style={{background: "black", color: "white", marginBottom: "0"}}>
-//     <div style={{gap: "50px"}}>
-//       <h1>current count:{count}</h1>
-//       <button style={{background: "plum", padding: "10px", borderRadius: "10px"}} onClick={() => setCount(count + 1)}>Increment</button>
-//       <button style={{background: "transparent", padding: "10px", border: "1px solid plum", borderRadius: "10px"}} onClick={() => setCount(count - 1)}>Decrement</button>
-//       <button style={{background: "plum", padding: "10px", borderRadius: "10px"}} onClick={() => setCount(0)}>Reset</button>
-//     </div>
-
-
-//       <form
-//         style={{
-//           width: "300px",
-//           height: "400px",
-//           background: "transparent",
-//           border: "1px solid gray",
-//           justifyContent: "center",
-//           justifySelf: "center",
-//           flexDirection: "column",
-//           borderRadius: "10px"
-//         }}
-//       >
-//         <input
-//           type="text"
-//           placeholder="Enter your name"
-//           value={name}
-//           onChange={(e) => setName(e.target.value)}
-//         />
-
-//         <input
-//           type="password"
-//           placeholder="Enter password"
-//         />
-
-//         <button onClick={handleLogin}>login</button>
-        
-//       </form>
-
-//       {displayedName && <p>Hello {displayedName}</p>}
-      
-//     </div>
-//   );
-// };
-
-// export default Counter;
-
-
-
-
-
 import { useState } from "react";
+import {useNavigate} from "react-router-dom";
 
 const Counter = () => {
   const [count, setCount] = useState(0);
   const [name, setName] = useState("");
   const [displayedName, setDisplayedName] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
     setDisplayedName(name);
+    setLoading(true);
+    setTimeout(() => {
+      navigate("/youtube-dashboard");
+    }, 5000
+  )
   };
 
   return (
@@ -125,6 +72,7 @@ const Counter = () => {
             value={name}
             onChange={(e) => setName(e.target.value)}
             className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg px-3 py-2.5 text-sm text-white placeholder-gray-600 outline-none focus:border-[#dda0dd] transition"
+            disabled={loading}
           />
         </div>
 
@@ -134,14 +82,23 @@ const Counter = () => {
             type="password"
             placeholder="Enter password"
             className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg px-3 py-2.5 text-sm text-white placeholder-gray-600 outline-none focus:border-[#dda0dd] transition"
+            disabled={loading}
           />
         </div>
 
         <button
           type="submit"
           className="mt-2 flex items-center justify-center py-2.5 rounded-lg bg-[#dda0dd] text-black font-semibold hover:opacity-90 active:scale-95 transition"
+          disabled={loading}
         >
-          Login
+          {loading ? (
+            <>
+            <span className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+            "Signing in..."
+            </> 
+            ) : (
+              "Sign In"
+            )}
         </button>
 
         {displayedName && (

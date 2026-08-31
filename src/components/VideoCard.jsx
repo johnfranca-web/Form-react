@@ -5,7 +5,7 @@ export default function VideoCard({ video }) {
 
   return (
     <div className="flex w-full cursor-pointer flex-col">
-      <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-gray-200">
+      <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-gray-200 dark:bg-[#272727]">
         <img
           src={thumbnail}
           alt={title}
@@ -23,14 +23,14 @@ export default function VideoCard({ video }) {
           className="h-9 w-9 flex-shrink-0 rounded-full"
         />
         <div className="min-w-0">
-          <h3 className="line-clamp-2 text-sm font-medium leading-5 text-gray-900">
+          <h3 className="line-clamp-2 text-sm font-medium leading-5 text-gray-900 dark:text-white">
             {title}
           </h3>
-          <div className="mt-1 flex items-center gap-1 text-xs text-gray-600">
+          <div className="mt-1 flex items-center gap-1 text-xs text-gray-600 dark:text-gray-400">
             <span className="truncate">{channel}</span>
-            {verified && <BadgeCheck size={13} className="flex-shrink-0 text-gray-500" />}
+            {verified && <BadgeCheck size={13} className="flex-shrink-0 text-gray-500 dark:text-gray-400" />}
           </div>
-          <p className="text-xs text-gray-600">
+          <p className="text-xs text-gray-600 dark:text-gray-400">
             {views} &middot; {time}
           </p>
         </div>

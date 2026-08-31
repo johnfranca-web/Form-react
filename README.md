@@ -8,6 +8,7 @@ A responsive clone of the YouTube dashboard built with **React 19**, **Vite**, a
 - Collapsible sidebar: full sidebar with labels on large screens, icon-only mini rail on tablet, slide-out drawer on mobile
 - Horizontally scrollable category filter pills (sticky under the navbar)
 - Video grid generated from a data array with `.map()`, responsive from 1 column (mobile) up to 5 columns (large desktop)
+- Dark mode: toggle button in the navbar (sun/moon icon), remembers your choice in `localStorage`, and falls back to your OS preference on first visit
 - Reusable components: `Navbar`, `Sidebar`, `CategoryBar`, `VideoCard`, `VideoGrid`
 
 ## Project structure
@@ -23,6 +24,8 @@ src/
   data/
     videos.js       # sample video + category data
     sidebar.js       # sidebar links + sample subscriptions
+  hooks/
+    useTheme.js       # dark mode state, persisted to localStorage
   App.jsx
   index.css          # Tailwind entry
   main.jsx

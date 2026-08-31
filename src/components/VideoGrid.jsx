@@ -3,8 +3,8 @@ import VideoCard from "./VideoCard";
 export default function VideoGrid({ videos }) {
   if (videos.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center py-24 text-center text-gray-500">
-        <p className="text-lg font-medium">No videos in this category yet</p>
+      <div className="flex flex-col items-center justify-center py-24 text-center text-gray-500 dark:text-gray-400">
+        <p className="text-lg font-medium text-gray-900 dark:text-white">No videos in this category yet</p>
         <p className="text-sm">Try a different filter.</p>
       </div>
     );
