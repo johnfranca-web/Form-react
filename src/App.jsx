@@ -1,5 +1,5 @@
 import Dashboard from "./components/Dashboard";
-import Counter from "./components/counter";
+import Counter from "./components/Counter";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
